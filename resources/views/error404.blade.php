@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>eror 404</title>
+    </head>
+    <body>
+        <style type="text/css">
+        body
+        {
+            font-family: 'Rubik', sans-serif;
+        }
+
+        h1,h2,h3,h4,h5,h6,p
+        {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .error_container
+        {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .error_block
+        {
+            width: 40%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+        }
+
+        .error_block h1
+        {
+            font-size: 80px;
+            color: #3f3a64;
+        }
+
+        .error_block h3
+        {
+            font-size: 40px;
+            color: #3f3a64;
+        }
+
+        .error_btn
+        {
+            width: 250px;
+            height: 45px;
+            background: #20ad96;
+            border:none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 30px;
+            cursor: pointer;
+        }
+        </style>
+
+        <div class="error_container">
+            <div class="error_block">
+                <h1>404</h1>
+                <h3>Oops... Page Not Found!</h3>
+                <p>Try using the button below to go to main page of the site</p>
+                <!-- <input type="button" class="error_btn" value="BACK TO PAGE"> -->
+            </div>
+        </div>
+    </body>
+</html>
