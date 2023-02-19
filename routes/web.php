@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\HospitalController;
+use App\Http\Controllers\MajorController;
+use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\StatusController;
+use App\Http\Controllers\BanrController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,13 +25,13 @@ Route::get('/', function () {
 
 Route::get('/welcome', [WelcomeController::class, 'welcome']);
 
-Route::get('/hospital/index', [HospitalController::class, 'index']);
-Route::get('/hospital/create', [HospitalController::class, 'create']);
-Route::post('/hospital/store', [HospitalController::class, 'store']);
-Route::get('/hospital/show/{id}', [HospitalController::class, 'show']);
-Route::get('/hospital/edit/{id}', [HospitalController::class, 'edit']);
-Route::post('/hospital/update/{id}', [HospitalController::class, 'update']);
-Route::delete('/hospital/destroy/{id}', [HospitalController::class, 'destroy']);
+Route::resource('hospitals', HospitalController::class);
+Route::resource('majors', MajorController::class);
+Route::resource('doctors', DoctorController::class);
+Route::resource('statuses', StatusController::class);
+Route::resource('banrs', BanrController::class);
+Route::resource('offers', OffersController::class);
+Route::resource('contact_us', Contact_usController::class);
 
 Route::fallback(function () {
     return view('error404');
