@@ -7,6 +7,8 @@ use App\Http\Controllers\MajorController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\BanrController;
+use App\Http\Controllers\OfferController;
+use App\Http\Controllers\Contact_usController;
 
 /*
 |--------------------------------------------------------------------------
