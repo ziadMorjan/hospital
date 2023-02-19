@@ -30,7 +30,7 @@ Route::resource('majors', MajorController::class);
 Route::resource('doctors', DoctorController::class);
 Route::resource('statuses', StatusController::class);
 Route::resource('banrs', BanrController::class);
-Route::resource('offers', OffersController::class);
+Route::resource('offers', OfferController::class);
 Route::resource('contact_us', Contact_usController::class);
 
 Route::fallback(function () {
