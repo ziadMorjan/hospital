@@ -22,8 +22,8 @@ use App\Http\Controllers\Contact_usController;
 */
 
 Route::get('/', function () {
-    return view('admin.dashbord');
-});
+    return view('admin.home');
+})->name('home');
 
 Route::get('/welcome', [WelcomeController::class, 'welcome']);
 

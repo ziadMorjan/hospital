@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Hospital;
 
 class HospitalController extends Controller
 {
@@ -13,7 +14,8 @@ class HospitalController extends Controller
      */
     public function index()
     {
-        //
+        $data = Hospital::all();
+        return view('admin.hospitals.index', compact('data'));
     }
 
     /**
