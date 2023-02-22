@@ -242,6 +242,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         {{-- hospitals --}}
+                        {{-- majors --}}
+                        <li class="nav-item">
+                            <a href="{{route('majors.index')}}" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Majors
+                                </p>
+                            </a>
+                        </li>
+                        {{-- majors --}}
+                        {{-- doctors --}}
+                        <li class="nav-item">
+                            <a href="{{route('doctors.index')}}" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Doctors
+                                </p>
+                            </a>
+                        </li>
+                        {{-- doctors --}}
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

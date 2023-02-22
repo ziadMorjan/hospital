@@ -26,6 +26,14 @@ class HospitalController extends Controller
     public function create()
     {
         //
+        // $hospital = new Hospital();
+        // $hospital->name = 'Harbi';
+        // $hospital->location = 'gaza';
+        // $hospital->rate = 4.54;
+        // $hospital->cover = 'cover';
+        // $hospital->bg_background = 'bg_background';
+        // $hospital->describtin = 'describtin';
+        // $hospital->save();
     }
 
     /**

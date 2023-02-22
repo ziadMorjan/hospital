@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Major;
 
 class MajorController extends Controller
 {
@@ -13,7 +14,8 @@ class MajorController extends Controller
      */
     public function index()
     {
-        //
+        $data = Major::all();
+        return view('admin.majors.index', compact('data'));
     }
 
     /**
@@ -23,7 +25,11 @@ class MajorController extends Controller
      */
     public function create()
     {
-        //
+        $major = new Major();
+        $major->name = 'ali';
+        $major->describtin = 'describtin';
+        $major->cover = 'cover';
+        $major->save();
     }
 
     /**
