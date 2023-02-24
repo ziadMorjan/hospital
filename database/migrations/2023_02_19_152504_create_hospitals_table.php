@@ -18,9 +18,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('location');
             $table->float('rate');
-            $table->text('cover');
+            $table->boolean('is_active');
+            $table->text('cover')->nullable();
             $table->text('bg_background');
-            $table->text('describtin');
+            $table->text('describtin')->nullable();
             $table->timestamps();
         });
     }
