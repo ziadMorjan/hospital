@@ -16,9 +16,11 @@ return new class extends Migration
         Schema::create('majors', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('describtin');
-            $table->text('cover');
+            $table->text('describtin')->nullable();
+            $table->text('cover')->nullable();
+            $table->boolean('is_active');
             $table->timestamps();
+
         });
     }
 

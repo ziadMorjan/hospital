@@ -13,7 +13,7 @@ class HospitalRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -28,7 +28,7 @@ class HospitalRequest extends FormRequest
             'location'=>'required|string|min:3',
             'cover'=>'nullable|image|mimes:png,jpg',
             'describtin'=>'nullable|string|min:3',
-            'is_active'=>'in:no|string'
+            
         ];
     }
 }

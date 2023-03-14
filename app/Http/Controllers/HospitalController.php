@@ -36,14 +36,14 @@ class HospitalController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(HospitalRequest $request)
     {
-        $request->validate([
-            'name'=>'required|string|min:3',
-            'location'=>'required|string|min:3',
-            'cover'=>'nullable|image|mimes:png,jpg',
-            'describtin'=>'nullable|string|min:3',
-        ]);
+        // $request->validate([
+        //     'name'=>'required|string|min:3',
+        //     'location'=>'required|string|min:3',
+        //     'cover'=>'nullable|image|mimes:png,jpg',
+        //     'describtin'=>'nullable|string|min:3',
+        // ]);
         $hospital = new Hospital();
         $hospital->name = $request->get('name');
         $hospital->location = $request->get('location');
@@ -94,14 +94,14 @@ class HospitalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(HospitalRequest $request, $id)
     {
-        $request->validate([
-            'name'=>'required|string|min:3',
-            'location'=>'required|string|min:3',
-            'cover'=>'nullable|image|mimes:png,jpg',
-            'describtin'=>'nullable|string|min:3',
-        ]);
+        // $request->validate([
+        //     'name'=>'required|string|min:3',
+        //     'location'=>'required|string|min:3',
+        //     'cover'=>'nullable|image|mimes:png,jpg',
+        //     'describtin'=>'nullable|string|min:3',
+        // ]);
 
         $hospital = Hospital::find($id);
         $hospital->name = $request->get('name');

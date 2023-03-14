@@ -17,6 +17,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="{{ asset('cms/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('cms/dist/css/adminlte.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('cms/plugins/toastr/toastr.min.css') }}">
     @yield('css')
 </head>
 
@@ -32,7 +33,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{route('home')}}" class="nav-link">Home</a>
+                    <a href="{{ route('home') }}" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
@@ -171,7 +172,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="{{route('home')}}" class="brand-link">
+            <a href="{{ route('home') }}" class="brand-link">
                 <img src="{{ asset('cms/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">AdminLTE 3</span>
@@ -234,7 +235,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li>
                         {{-- hospitals --}}
                         <li class="nav-item">
-                            <a href="{{route('hospitals.index')}}" class="nav-link">
+                            <a href="{{ route('hospitals.index') }}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Hospitals
@@ -244,7 +245,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         {{-- hospitals --}}
                         {{-- majors --}}
                         <li class="nav-item">
-                            <a href="{{route('majors.index')}}" class="nav-link">
+                            <a href="{{ route('majors.index') }}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Majors
@@ -254,7 +255,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         {{-- majors --}}
                         {{-- doctors --}}
                         <li class="nav-item">
-                            <a href="{{route('doctors.index')}}" class="nav-link">
+                            <a href="{{ route('doctors.index') }}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Doctors
@@ -280,7 +281,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                                 <li class="breadcrumb-item active">@yield('title')</li>
                             </ol>
                         </div><!-- /.col -->
@@ -323,6 +324,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="{{ asset('cms/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('cms/dist/js/adminlte.min.js') }}"></script>
+    <script src="{{ asset('cms/plugins/toastr/toastr.min.js') }}"></script>
+    <script src="{{ asset('js/axios.min.js') }}"></script>
+    <script src="{{ asset('js/sweet.js') }}"></script>
+
     @yield('script')
 </body>
 
