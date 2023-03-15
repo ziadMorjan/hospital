@@ -29,11 +29,7 @@ Route::get('/welcome', [WelcomeController::class, 'welcome']);
 
 Route::resource('hospitals', HospitalController::class);
 Route::resource('majors', MajorController::class);
-Route::resource('doctors', DoctorController::class);
-Route::resource('statuses', StatusController::class);
-Route::resource('banrs', BanrController::class);
-Route::resource('offers', OfferController::class);
-Route::resource('contact_us', Contact_usController::class);
+
 
 Route::fallback(function () {
     return view('error404');
