@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Major extends Model
+class Doctor extends Model
 {
     use HasFactory;
-    public function hospitals()
+
+    public function hospital()
     {
-        return $this->belongsToMany(Hospital::class);
+        return $this->belongsTo(Hospital::class);
     }
 }

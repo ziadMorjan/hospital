@@ -18,6 +18,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('cms/dist/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('cms/plugins/toastr/toastr.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('cms/plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('cms/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
     @yield('css')
 </head>
 
@@ -324,7 +326,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="{{ asset('cms/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('cms/dist/js/adminlte.min.js') }}"></script>
+
     <script src="{{ asset('cms/plugins/toastr/toastr.min.js') }}"></script>
+    <script src="{{ asset('cms/plugins/select2/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('js/axios.min.js') }}"></script>
     <script src="{{ asset('js/sweet.js') }}"></script>
 

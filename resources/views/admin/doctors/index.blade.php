@@ -4,44 +4,47 @@
 
 @endsection
 
-@section('title', 'Majors')
+@section('title','Doctors')
+
 @section('content')
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Majors Table</h3>
-                <a href="{{ route('majors.create') }}" class="btn btn-success float-right">New Major</a>
-            </div>
+                <h3 class="card-title">Doctors Table</h3>
+                <a href="{{ route('doctors.create') }}" class="btn btn-success float-right">New Doctor</a>
 
+            </div>
+            <!-- /.card-header -->
             <div class="card-body">
                 <table class="table table-bordered">
                     <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>status</th>
-                            <th>Creat Date</th>
-                            <th>Update Date</th>
-                            <th>Actions</th>
-                        </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone No.</th>
+                        <th>Hospital ID</th>
+                        <th>Created At</th>
+                        <th>Updated At</th>
+                        <th>Actions</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        @foreach ($data as $major)
+                        @foreach($doctors as $doctor)
                             <tr>
-                                <th>{{ $major->id }}</th>
-                                <th>{{ $major->name }}</th>
-                                <th>
-                                    {{ $major->is_active ? 'Active' : 'Non Active' }}
-                                </th>
-                                <th>{{ $major->created_at }}</th>
-                                <th>{{ $major->updated_at }}</th>
+                                <th>{{$doctor->id}}</th>
+                                <th>{{$doctor->name}}</th>
+                                <th>{{$doctor->email}}</th>
+                                <th>{{$doctor->phone}}</th>
+                                <th>{{$doctor->hospital_id}}</th>
+                                <th>{{$doctor->created_at}}</th>
+                                <th>{{$doctor->updated_at}}</th>
                                 <th>
                                     <div class="btn-group">
-                                        <a href="{{ route('majors.edit', $major->id) }}" class="btn btn-info">
+                                        <a href="{{route('doctors.edit',$doctor)}}" class="btn btn-info">
                                             <i class="fas fa-edit"></i>
                                         </a>
-
-                                        <button onclick="deleteIteme('/majors/', this, {{$major->id}})" class="btn btn-danger">
+                                        <button onclick="deleteItem('/doctors/', this, {{$doctor->id}})" class="btn btn-danger">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </div>
@@ -51,7 +54,7 @@
                     </tbody>
                 </table>
             </div>
-
+            <!-- /.card-body -->
             <div class="card-footer clearfix">
                 <ul class="pagination pagination-sm m-0 float-right">
                     <li class="page-item"><a class="page-link" href="#">«</a></li>
@@ -67,7 +70,8 @@
 
 @section('script')
     <script>
-        function deleteIteme(url, ref, id) {
+        function deleteItem(url, ref, id)
+        {
             Swal.fire({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -99,4 +103,4 @@
                 })
         }
     </script>
-@endsection
+@endsection()

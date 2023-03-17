@@ -31,13 +31,13 @@
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Hospital Name</label>
-                        <input type="text" name="name" class="form-control" id="exampleInputEmail1"
+                        <label for="name">Hospital Name</label>
+                        <input type="text" name="name" class="form-control" id="name"
                             placeholder="Enter name" value="{{ old('name') }}">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Location</label>
-                        <input type="text" name="location" class="form-control" id="exampleInputPassword1"
+                        <label for="location">Location</label>
+                        <input type="text" name="location" class="form-control" id="location"
                             placeholder="location" value="{{ old('location') }}">
                     </div>
                     <div class="form-group">
@@ -52,6 +52,15 @@
                                 <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                             </div>
                         </div>
+                    </div>
+                    <div class="form-group" data-select2-id="29">
+                        <label>Multiple</label>
+                        <select class="select2 select2-hidden-accessible" multiple="" data-placeholder="Select a majors"
+                            style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true" name="majors[]">
+                            @foreach($majors as $major)
+                                <option value="{{$major->id}}">{{$major->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="custom-control custom-switch">
                         <input type="checkbox" name="is_active" class="custom-control-input" id="customSwitch1">
@@ -69,5 +78,10 @@
 @endsection
 
 @section('script')
-
+    <script>
+        //Initialize Select2 Elements
+        $('.select2').select2({
+            majors : true
+        })
+    </script>
 @endsection

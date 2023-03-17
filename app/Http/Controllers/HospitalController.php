@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Major;
 use Illuminate\Http\Request;
 use App\Models\Hospital;
 use App\Http\Requests\HospitalRequest;
@@ -27,7 +28,8 @@ class HospitalController extends Controller
      */
     public function create()
     {
-        return view('admin.hospitals.create');
+        $majors = Major::all();
+        return view('admin.hospitals.create', compact('majors'));
     }
 
     /**
@@ -56,8 +58,10 @@ class HospitalController extends Controller
             $hospital->cover = $imgeName;
         }
         $hospital->bg_background = 'bg_background';
-        $hospital->describtin = $request->get('describtin');;
+        $hospital->describtin = $request->get('describtin');
+
         $is_saved = $hospital->save();
+        $hospital->majors()->attach($request->get('majors'));
         if($is_saved){
             session()->flash('message', 'New Hospital Added Successfuly');
             return redirect()->route('hospitals.index');

@@ -5,10 +5,7 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\MajorController;
 use App\Http\Controllers\DoctorController;
-use App\Http\Controllers\StatusController;
-use App\Http\Controllers\BanrController;
-use App\Http\Controllers\OfferController;
-use App\Http\Controllers\Contact_usController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +26,7 @@ Route::get('/welcome', [WelcomeController::class, 'welcome']);
 
 Route::resource('hospitals', HospitalController::class);
 Route::resource('majors', MajorController::class);
+Route::resource('doctors', DoctorController::class);
 
 
 Route::fallback(function () {

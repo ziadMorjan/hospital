@@ -67,7 +67,8 @@ class MajorController extends Controller
                     $is_saved ? Response::HTTP_OK : Response::HTTP_BAD_REQUEST
                 );
             }
-        } else {
+        }
+        else {
             return response()->json(
                 [
                     'message' => $validator->getMessageBag()->first()
