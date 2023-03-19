@@ -28,6 +28,8 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::resource('majors', MajorController::class);
     Route::resource('doctors', DoctorController::class);
     Route::get('logout', [AuthController::class, 'logout'])->name('admin.logout');
+    Route::get('change-password', [AuthController::class, 'change_password'])->name('admin.change-password');
+    Route::post('post-change-password', [AuthController::class, 'post_change_password'])->name('admin.post-change-password');
 });
 
 Route::prefix('admin')->middleware('guest:admin')->group(function () {

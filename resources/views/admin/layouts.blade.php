@@ -281,6 +281,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 style="display: none;  padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
                                 {{-- logout --}}
                                 <li class="nav-item">
+                                    <a href="{{ route('admin.change-password') }}" class="nav-link">
+                                        <i class="nav-icon fas fa-th"></i>
+                                        <p>
+                                            Change Password
+                                        </p>
+                                    </a>
+                                </li>
+                                {{-- logout --}}
+                                {{-- logout --}}
+                                <li class="nav-item">
                                     <a href="{{ route('admin.logout') }}" class="nav-link">
                                         <i class="nav-icon fas fa-th"></i>
                                         <p>
