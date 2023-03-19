@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\HospitalController;
@@ -18,17 +19,24 @@ use App\Http\Controllers\DoctorController;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.home');
-})->name('home');
+Route::prefix('admin')->middleware('auth:admin')->group(function () {
+
+    Route::get('/', function () {
+        return view('admin.home');
+    })->name('adminHome');
+    Route::resource('hospitals', HospitalController::class);
+    Route::resource('majors', MajorController::class);
+    Route::resource('doctors', DoctorController::class);
+    Route::get('logout', [AuthController::class, 'logout'])->name('admin.logout');
+});
+
+Route::prefix('admin')->middleware('guest:admin')->group(function () {
+
+    Route::get('login', [AuthController::class, 'login'])->name('admin.login');
+    Route::post('post-login', [AuthController::class, 'post_login'])->name('admin.post-login');
+});
 
 Route::get('/welcome', [WelcomeController::class, 'welcome']);
-
-Route::resource('hospitals', HospitalController::class);
-Route::resource('majors', MajorController::class);
-Route::resource('doctors', DoctorController::class);
-
-
 Route::fallback(function () {
     return view('error404');
 });

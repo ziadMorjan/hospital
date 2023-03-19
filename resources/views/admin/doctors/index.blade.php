@@ -4,7 +4,7 @@
 
 @endsection
 
-@section('title','Doctors')
+@section('title', 'Doctors')
 
 @section('content')
     <div class="col-md-12">
@@ -18,33 +18,34 @@
             <div class="card-body">
                 <table class="table table-bordered">
                     <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone No.</th>
-                        <th>Hospital ID</th>
-                        <th>Created At</th>
-                        <th>Updated At</th>
-                        <th>Actions</th>
-                    </tr>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone No.</th>
+                            <th>Hospital ID</th>
+                            <th>Created At</th>
+                            <th>Updated At</th>
+                            <th>Actions</th>
+                        </tr>
                     </thead>
                     <tbody>
-                        @foreach($doctors as $doctor)
+                        @foreach ($doctors as $doctor)
                             <tr>
-                                <th>{{$doctor->id}}</th>
-                                <th>{{$doctor->name}}</th>
-                                <th>{{$doctor->email}}</th>
-                                <th>{{$doctor->phone}}</th>
-                                <th>{{$doctor->hospital_id}}</th>
-                                <th>{{$doctor->created_at}}</th>
-                                <th>{{$doctor->updated_at}}</th>
+                                <th>{{ $doctor->id }}</th>
+                                <th>{{ $doctor->name }}</th>
+                                <th>{{ $doctor->email }}</th>
+                                <th>{{ $doctor->phone }}</th>
+                                <th>{{ $doctor->hospital_id }}</th>
+                                <th>{{ $doctor->created_at }}</th>
+                                <th>{{ $doctor->updated_at }}</th>
                                 <th>
                                     <div class="btn-group">
-                                        <a href="{{route('doctors.edit',$doctor)}}" class="btn btn-info">
+                                        <a href="{{ route('doctors.edit', $doctor) }}" class="btn btn-info">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <button onclick="deleteItem('/doctors/', this, {{$doctor->id}})" class="btn btn-danger">
+                                        <button onclick="deleteItem('/admin/doctors/', this, {{ $doctor->id }})"
+                                            class="btn btn-danger">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </div>
@@ -70,20 +71,19 @@
 
 @section('script')
     <script>
-        function deleteItem(url, ref, id)
-        {
+        function deleteItem(url, ref, id) {
             Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#007bff',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            })
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#007bff',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                })
                 .then((result) => {
                     if (result.isConfirmed) {
-                        axios.delete(url+id)
+                        axios.delete(url + id)
                             .then(function(response) {
                                 Swal.fire(
                                     'Deleted!',

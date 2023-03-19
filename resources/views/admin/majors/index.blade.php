@@ -41,7 +41,8 @@
                                             <i class="fas fa-edit"></i>
                                         </a>
 
-                                        <button onclick="deleteIteme('/majors/', this, {{$major->id}})" class="btn btn-danger">
+                                        <button onclick="deleteIteme('/admin/majors/', this, {{ $major->id }})"
+                                            class="btn btn-danger">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </div>
@@ -69,17 +70,17 @@
     <script>
         function deleteIteme(url, ref, id) {
             Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#007bff',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            })
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#007bff',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                })
                 .then((result) => {
                     if (result.isConfirmed) {
-                        axios.delete(url+id)
+                        axios.delete(url + id)
                             .then(function(response) {
                                 Swal.fire(
                                     'Deleted!',

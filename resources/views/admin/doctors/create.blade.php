@@ -4,7 +4,7 @@
 
 @endsection
 
-@section('title','Doctors')
+@section('title', 'Doctors')
 
 @section('content')
     <div class="col-md-12">
@@ -30,22 +30,23 @@
                     </div>
                     <div class="form-group">
                         <label>Description</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter description ..." id="description" ></textarea>
+                        <textarea class="form-control" rows="3" placeholder="Enter description ..." id="description"></textarea>
                     </div>
                     <div class="form-group" data-select2-id="29">
                         <label>Hospital</label>
-                        <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1"
-                                tabindex="-1" aria-hidden="true" id="hospital">
+                        <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
+                            data-select2-id="1" tabindex="-1" aria-hidden="true" id="hospital">
                             <option selected disabled hidden="hidden">Select a hospital</option>
-                            @foreach($hospitals as $hospital)
-                                <option value="{{$hospital->id}}">{{$hospital->name}}</option>
+                            @foreach ($hospitals as $hospital)
+                                <option value="{{ $hospital->id }}">{{ $hospital->name }}</option>
                             @endforeach
                         </select>
                     </div>
-                    {{--عشان الشكل ميخربش--}}
+                    {{-- عشان الشكل ميخربش --}}
                     <div class="form-group" data-select2-id="29" style="display: none">
                         <label>Major</label>
-                        <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                        <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
+                            data-select2-id="1" tabindex="-1" aria-hidden="true">
 
                         </select>
                     </div>
@@ -60,7 +61,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="button" onclick="storeItem('/doctors')" class="btn btn-primary">Submit</button>
+                    <button type="button" onclick="storeItem('/admin/doctors')" class="btn btn-primary">Submit</button>
                 </div>
             </form>
         </div>
@@ -70,29 +71,25 @@
 
 @section('script')
     <script>
-        function storeItem(url)
-        {
+        function storeItem(url) {
             let formatDate = new FormData();
-            formatDate.append('name',document.getElementById('name').value);
+            formatDate.append('name', document.getElementById('name').value);
             formatDate.append('email', document.getElementById('email').value);
             formatDate.append('phone', document.getElementById('phone').value);
             formatDate.append('description', document.getElementById('description').value);
             formatDate.append('hospital_id', document.getElementById('hospital').value);
-            if (document.getElementById('cover').files[0] !== undefined)
-            {
+            if (document.getElementById('cover').files[0] !== undefined) {
                 formatDate.append('cover', document.getElementById('cover').files[0]);
             }
 
             axios.post(url, formatDate)
-                .then(function (response)
-                {
+                .then(function(response) {
                     console.log(response.data.message);
                     toastr.success(response.data.message);
                     document.getElementById('form-reset').reset();
-                    window.location.href = '/doctors';
+                    window.location.href = '/admin/doctors';
                 })
-                .catch(function (error)
-                {
+                .catch(function(error) {
                     console.log(error.response.data.message);
                     toastr.error(error.response.data.message)
                 });
@@ -101,7 +98,7 @@
     <script>
         //Initialize Select2 Elements
         $('.select2').select2({
-            majors : true,
+            majors: true,
             hospitals: true
         })
     </script>

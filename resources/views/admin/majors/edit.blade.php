@@ -58,30 +58,26 @@
 
 @section('script')
     <script>
-        function updateItem(id)
-        {
+        function updateItem(id) {
             let formData = new FormData();
-            formData.append('_method','put');
-            formData.append('name',document.getElementById('name').value);
-            formData.append('describtin',document.getElementById('describtin').value);
-            if (document.getElementById('cover').files[0] != undefined)
-            {
-                formData.append('cover',document.getElementById('cover').files[0] );
+            formData.append('_method', 'put');
+            formData.append('name', document.getElementById('name').value);
+            formData.append('describtin', document.getElementById('describtin').value);
+            if (document.getElementById('cover').files[0] != undefined) {
+                formData.append('cover', document.getElementById('cover').files[0]);
             }
-            formData.append('is_active',document.getElementById('customSwitch1').checked);
+            formData.append('is_active', document.getElementById('customSwitch1').checked);
 
-            axios.post('/majors/'+id, formData)
-            .then(function(response)
-            {
-                console.log(response.data.message);
-                toastr.success(response.data.message);
-                window.location.href = '/majors';
-            })
-            .catch(function (error)
-            {
-                console.log(error.response.data.message);
-                toastr.error(error.response.data.message);
-            });
+            axios.post('/admin/majors/' + id, formData)
+                .then(function(response) {
+                    console.log(response.data.message);
+                    toastr.success(response.data.message);
+                    window.location.href = '/admin/majors';
+                })
+                .catch(function(error) {
+                    console.log(error.response.data.message);
+                    toastr.error(error.response.data.message);
+                });
         }
     </script>
 @endsection

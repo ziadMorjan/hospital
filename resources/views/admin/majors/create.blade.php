@@ -23,12 +23,13 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Major Name</label>
-                        <input type="text" name="name" class="form-control" id="name"
-                            placeholder="Enter name" value="">
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Enter name"
+                            value="">
                     </div>
                     <div class="form-group">
                         <label>Describtin</label>
-                        <textarea class="form-control" name="describtin" id="describtin" rows="3" placeholder="Enter major describtin ..."></textarea>
+                        <textarea class="form-control" name="describtin" id="describtin" rows="3"
+                            placeholder="Enter major describtin ..."></textarea>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputFile">Uplode Image</label>
@@ -46,7 +47,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                    <button type="button"  onclick="storeItem('/majors/')" class="btn btn-primary">Submit</button>
+                    <button type="button" onclick="storeItem('/admin/majors')" class="btn btn-primary">Submit</button>
                 </div>
             </form>
         </div>
@@ -56,31 +57,27 @@
 
 @section('script')
     <script>
-        function storeItem(url)
-        {
+        function storeItem(url) {
             let formData = new FormData();
-            formData.append('name',document.getElementById('name').value);
-            formData.append('describtin',document.getElementById('describtin').value);
-            if (document.getElementById('cover').files[0] != undefined)
-            {
-                formData.append('cover',document.getElementById('cover').files[0] );
+            formData.append('name', document.getElementById('name').value);
+            formData.append('describtin', document.getElementById('describtin').value);
+            if (document.getElementById('cover').files[0] != undefined) {
+                formData.append('cover', document.getElementById('cover').files[0]);
             }
-            formData.append('is_active',document.getElementById('customSwitch1').checked);
+            formData.append('is_active', document.getElementById('customSwitch1').checked);
             axios.post(url, formData)
-            .then(function (response)
-            {
-                // toastr.success('Created Successfuly')
-                console.log(response.data.message);
-                toastr.success(response.data.message);
-                document.getElementById('form-reset').reset();
-                // window.location.href = '/majors';
-            })
-            .catch(function (error)
-            {
-                // toastr.success('Error')
-                console.log(error.response.data.message);
-                toastr.error(error.response.data.message);
-            });
+                .then(function(response) {
+                    // toastr.success('Created Successfuly')
+                    console.log(response.data.message);
+                    toastr.success(response.data.message);
+                    document.getElementById('form-reset').reset();
+                    // window.location.href = '/majors';
+                })
+                .catch(function(error) {
+                    // toastr.success('Error')
+                    console.log(error.response.data.message);
+                    toastr.error(error.response.data.message);
+                });
         }
     </script>
 @endsection
